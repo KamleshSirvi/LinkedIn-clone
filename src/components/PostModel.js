@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import {useState} from "react";
 import ReactPlayer from "react-player";
-import firebase from "firebase/compat";
+import firebase from "firebase/compat/app";
 import { postArticleAPI } from "../actions";
 
 const PostModel = (props) => {
@@ -65,7 +65,6 @@ const PostModel = (props) => {
                         <Header>
                             <h2>Create a Post</h2>
                             <button onClick={(event) => reset(event)}>
-                            {/* <button> */}
                                 <img src="/images/close-icon.svg" alt="" />
                             </button>
                         </Header>

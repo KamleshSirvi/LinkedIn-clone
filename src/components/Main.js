@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import PostModel from './PostModel';
 import {useState} from "react"
+import { connect } from 'react-redux';
 
 const Main = (props) => {
   const [showModel, setShowModel] = useState("close");
@@ -30,10 +31,14 @@ const Main = (props) => {
   return (
     <Container>
       <ShareBox>
-        Share
       <div>
-        <img src="/images/user.svg" alt="" />
-        <button onClick={handleClick}>Start a post</button>
+        {props.user && props.user.photoURL ? (
+          <img src={props.user.photoURL} alt=''/>
+        ):(
+          <img src="/images/user.svg" alt="" />
+        )
+        }
+        <button onClick={handleClick} disabled={props.loading? true : false}>Start a post</button>
       </div> 
 
       <div>
@@ -59,7 +64,10 @@ const Main = (props) => {
       </div>
       </ShareBox>
 
-      <div>
+      <Content>
+        {
+          props.loading && <img src='/images/loading.svg' alt=''/>
+        }
         <Article>
           <SharedActor>
             <a href="/home">
@@ -120,7 +128,7 @@ const Main = (props) => {
           </button>
           </SocialActions>
         </Article>
-      </div>
+        </Content>
       <PostModel showModel={showModel} handleClick={handleClick}/>
       {/* <PostModel/> */}
 
@@ -332,4 +340,24 @@ const SocialActions = styled.div`
   }
 `;
 
-export default Main;
+const Content = styled.div`
+  text-align: center;
+
+  & > img{
+    width: 30px;
+  }
+`;
+
+const matStateToProps = (state) => {
+  return {
+    loading: state.articleState.loading,
+    user: state.userState.user,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+
+})
+
+
+export default connect(matStateToProps, mapDispatchToProps)(Main);

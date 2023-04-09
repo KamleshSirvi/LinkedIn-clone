@@ -1,11 +1,17 @@
 import { auth, provider, storage } from "../firebase.js"
-import { SET_USER } from "./actionType.js";
+import { SET_USER , SET_LOADING_STATUS} from "./actionType.js";
 import db from "../firebase.js";
+// import { ref } from "firebase/storage";
 
 export const setUser = (payload) => ({
     type : SET_USER,
     user : payload,
 });
+
+export const setLoading = (status) =>({
+    type: SET_LOADING_STATUS,
+    status: status,
+})
 
 export function signInAPI() {
     return (dispatch) => {
@@ -43,8 +49,10 @@ export function signOutAPI() {
 
 export function postArticleAPI(payload){
     return (dispatch) => {
-        if(payload.image != ""){
-            const upload = storage.ref(`images/${payload.image.name}`).put(payload.image);
+        dispatch(setLoading(true));
+        if(payload.image !== ""){
+            const upload = storage.ref(`/images/${payload.image.name}`).put(payload.image);
+            // const upload = ref(storage, `images/`)
             upload.on("state_changed",(snapshot) => {
                     const progress = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
                     console.log(`Progress: ${progress}%`);
@@ -66,8 +74,23 @@ export function postArticleAPI(payload){
                         comments: 0,
                         description: payload.description,
                     })
+                    dispatch(setLoading(false))
                 }
                 )
+                }else if(payload.video){
+                    db.collection("articles").add({
+                        actor: {
+                            description: payload.user.email,
+                            title: payload.user.displayName,
+                            date: payload.timestamp,
+                            image: payload.user.photoURL,
+                        },
+                        video: payload.video,
+                        sharedImg: "",
+                        comments: 0,
+                        description: payload.description,
+                    })
+                    dispatch(setLoading(false));
                 }
             }
         }
