@@ -1,11 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
 import PostModel from './PostModel';
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import { connect } from 'react-redux';
+import { getArticleAPI } from '../actions';
+import ReactPlayer from 'react-player';
 
 const Main = (props) => {
   const [showModel, setShowModel] = useState("close");
+
+  useEffect(() => {
+    props.getArticles();
+  }, []);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -29,6 +35,11 @@ const Main = (props) => {
   }
 
   return (
+    <>
+    {
+      props.articles.length === 0 ? 
+      <p>There are no articles</p>
+      :
     <Container>
       <ShareBox>
       <div>
@@ -68,14 +79,17 @@ const Main = (props) => {
         {
           props.loading && <img src='/images/loading.svg' alt=''/>
         }
-        <Article>
+        {
+          props.articles.length > 0 && 
+          props.articles.map((article, key) => (
+        <Article key={key}>
           <SharedActor>
             <a href="/home">
-              <img src="/images/user.svg" alt="" />
+              <img src={article.actor.image} alt="" />
               <div>
-                <span>Title</span>
-                <span>Info</span>
-                <span>Date</span>
+                <span>{article.actor.title}</span>
+                <span>{article.actor.description}</span>
+                <span>{article.actor.date.toDate().toLocaleDateString()}</span>
               </div>
             </a>
             <button>
@@ -84,11 +98,15 @@ const Main = (props) => {
           </SharedActor>
 
           <Descryption>
-            Descryption
+            {article.description}
           </Descryption>
           <SharedImg>
             <a href="/home">
-              <img src="/images/shared-image.jpg" alt="" />
+              {!article.sharedImg && article.video ? (
+                <ReactPlayer width={"100%"} url={article.video} />
+              ) : (
+                article.sharedImg && <img src={article.sharedImg} alt='' />
+              ) }
             </a>
           </SharedImg>
           <SocialCounts>
@@ -128,11 +146,15 @@ const Main = (props) => {
           </button>
           </SocialActions>
         </Article>
+          ))
+    }
         </Content>
       <PostModel showModel={showModel} handleClick={handleClick}/>
       {/* <PostModel/> */}
 
     </Container>
+    }
+    </>
   )
 };
 
@@ -352,11 +374,12 @@ const matStateToProps = (state) => {
   return {
     loading: state.articleState.loading,
     user: state.userState.user,
+    articles : state.articleState.articles,
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-
+  getArticles: () => dispatch(getArticleAPI()),
 })
 
 
