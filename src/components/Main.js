@@ -128,7 +128,7 @@ const Main = (props) => {
             </li>
           </SocialCounts>
           <SocialActions>
-          <button>
+          <button >
             <img src="/images/like-icon.svg" alt="" />
             <span>Like</span>
           </button>

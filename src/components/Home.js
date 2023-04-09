@@ -15,7 +15,7 @@ const Home = (props) => {
         {!props.user && <Navigate to='/'/>}
             <Section>
                 <h5>
-                    <a href="/home">Hiring in a hurry? - </a>
+                    <a href="/home/hiring">Hiring in a hurry? - </a>
                 </h5>
                 <p>
                     Find talented pros in record time with upwork and keep business moving

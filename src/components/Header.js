@@ -29,28 +29,28 @@ const Header = (props) => {
                         </NavList>
 
                         <NavList>
-                            <a href="/home">
+                            <a href="/home/mynetwork">
                                 <img src="/images/nav-network.svg" alt="" />
                                 <span>My Network</span>
                             </a>
                         </NavList>
 
                         <NavList>
-                            <a href="/home">
+                            <a href="/home/jobs">
                                 <img src="/images/nav-jobs.svg" alt="" />
                                 <span>Jobs</span>
                             </a>
                         </NavList>
 
                         <NavList>
-                            <a href="/home">
+                            <a href="/home/messaging">
                                 <img src="/images/nav-messaging.svg" alt="" />
                                 <span>Messaging</span>
                             </a>
                         </NavList>
 
                         <NavList>
-                            <a href="/home">
+                            <a href="/home/notifications">
                                 <img src="/images/nav-notifications.svg" alt="" />
                                 <span>Notifications</span>
                             </a>
@@ -69,10 +69,16 @@ const Header = (props) => {
                             </a>
                             
                             <SignOut onClick={() => props.SignOut()}>
-                                <a href="/home">
+                                <a href="/">
                                     SignOut
                                 </a>
+                                {/* <a href="/home/profile">
+                                        profile
+                                    </a> */}
                             </SignOut>
+                            {/* <Profile>
+                                    
+                            </Profile> */}
                         </User>
 
                         <Work>
@@ -261,13 +267,21 @@ const User = styled(NavList)`
             align-items: center;
             display: flex;
             justify-content: center;
+            flex-direction: column;
         }
+        /* ${SignOut}{
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        } */
     }
 `;
 
 const Work = styled(User)`
     border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
+
+// const Profile = styled(SignOut)``;
 
 const mapStateToProps = (state) => {
     return {
