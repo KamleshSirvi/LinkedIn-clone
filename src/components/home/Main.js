@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import PostModel from './PostModel';
+import PostModel from '../postModel/PostModel';
 import {useState, useEffect} from "react"
 import { connect } from 'react-redux';
-import { getArticleAPI } from '../actions';
+import { getArticleAPI } from '../../actions';
 import ReactPlayer from 'react-player';
 
 const Main = (props) => {

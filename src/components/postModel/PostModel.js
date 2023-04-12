@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {useState} from "react";
 import ReactPlayer from "react-player";
 import firebase from "firebase/compat/app";
-import { postArticleAPI } from "../actions";
+import { postArticleAPI } from "../../actions";
 
 const PostModel = (props) => {
     const [editorText, setEditorText] = useState("");

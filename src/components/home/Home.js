@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Header from "./Header";
+import Header from "../header/Header";
 import Leftside from "./Leftside";
 import Main from "./Main";
 import Rightside from "./Rightside";
@@ -75,7 +75,6 @@ const Layout = styled.div`
     grid-template-areas: "leftside main rightside";
     column-gap: 25px;
     row-gap: 25px;
-
     margin: 25px 0;
     @media (max-width: 768px){
         display: flex;

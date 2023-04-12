@@ -3,7 +3,7 @@ import styled from "styled-components";
 import React from "react";
 // import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { signInAPI } from "../actions";
+import { signInAPI } from "../../actions";
 import {Navigate} from "react-router-dom";
 
 // const user = undefined;

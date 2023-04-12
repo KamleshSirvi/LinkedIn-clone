@@ -1,16 +1,17 @@
 import { BrowserRouter , Route , Routes} from 'react-router-dom';
 import './App.css';
-import Home from './components/Home';
-import Login from "./components/Login";
+import Home from './components/home/Home';
+import Login from "./components/login/Login";
 import React, {useEffect} from 'react';
 // import Header from './components/Header';
 import {getUserAuth} from "./actions"
 import { connect } from 'react-redux';
-import MyNetwork from './components/MyNetwork';
-import Jobs from './components/Jobs';
-import Messaging from './components/Messaging';
-import Notifications from './components/Notifications';
-import Hiring from './components/Hiring';
+
+import Jobs from './components/jobs/Jobs';
+import Messaging from './components/messaging/Messaging';
+import Notifications from './components/notification/Notifications';
+import Hiring from './components/hiring/Hiring';
+import MyNetwork from './components/mynetwork/MyNetwork';
 
 function App(props) { 
   useEffect(() => {
