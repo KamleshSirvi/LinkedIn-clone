@@ -6,12 +6,12 @@ import "firebase/compat/storage"
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAfzXXFENMY7qQRCN6N9IkshOxODY_vnHI",
-  authDomain: "linkedin-clone-bcf87.firebaseapp.com",
-  projectId: "linkedin-clone-bcf87",
-  storageBucket: "linkedin-clone-bcf87.appspot.com",
-  messagingSenderId: "876074544376",
-  appId: "1:876074544376:web:b24d8391ee3a91139f5f0d"
+  apiKey: "AIzaSyBZ0lOUR2Zmp-2kI5l4QbaK051jMneaS9Q",
+  authDomain: "linkedinclone-3c80e.firebaseapp.com",
+  projectId: "linkedinclone-3c80e",
+  storageBucket: "linkedinclone-3c80e.appspot.com",
+  messagingSenderId: "835946207396",
+  appId: "1:835946207396:web:4e9425b6efd86ea15f2e31"
 };
 
 //   initialize firebase app

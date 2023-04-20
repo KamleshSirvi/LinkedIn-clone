@@ -8,6 +8,11 @@ import ReactPlayer from 'react-player';
 
 const Main = (props) => {
   const [showModel, setShowModel] = useState("close");
+  const [likes, setLikes] = useState(0);
+
+  const handleLikes = (e) => {
+    setLikes(likes+1);
+  }
 
   useEffect(() => {
     props.getArticles();
@@ -120,15 +125,15 @@ const Main = (props) => {
                 src="https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f" 
                 alt="" />
 
-                <span>75</span>
+                <span>{likes}</span>
               </button>
             </li>
             <li>
-              <a href="/home">2 comments</a>
+              <a href="/home">0 comments</a>
             </li>
           </SocialCounts>
           <SocialActions>
-          <button >
+          <button onClick={handleLikes}>
             <img src="/images/like-icon.svg" alt="" />
             <span>Like</span>
           </button>
@@ -256,6 +261,7 @@ const SharedActor = styled.div`
     img{
       width: 48px;
       height: 48px;
+      border-radius: 50%;
     }
 
     & > div{
@@ -326,13 +332,25 @@ const SocialCounts = styled.ul`
 
   li{
     margin-right: 5px;
-    font-size: 12px;
+    font-size: 14px;
     
     button{
       display: flex;
+      border: none;
+      background-color: transparent;
+      span{
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
     }
     a{
       text-decoration: none;
+      color: black;
+      font-size: 14px;
+      padding-left: 15px;
     }
   }
 `;
@@ -340,7 +358,7 @@ const SocialCounts = styled.ul`
 const SocialActions = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin: 0;
   min-height: 40px;
   padding: 4px 8px;
@@ -349,7 +367,9 @@ const SocialActions = styled.div`
     display: inline-flex;
     align-items: center;
     padding: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: none;
+    background-color: transparent;
+    /* border: 1px solid rgba(0, 0, 0, 0.3); */
     border-radius: 10px;
     color: #0a66c2;
     

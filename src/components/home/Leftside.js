@@ -175,7 +175,7 @@ const Item = styled.a`
 `;
 
 const CommunityCard = styled(ArtCard)`
-    padding: 8px 0 0;
+    padding: 8px 12px 0;
     text-align: left;
     flex-direction: column;
     a{
