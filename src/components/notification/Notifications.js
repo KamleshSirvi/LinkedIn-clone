@@ -6,6 +6,7 @@ const Notifications = () => {
   return (
     <Container>
       <Header/>
+      
     </Container>
   )
 }

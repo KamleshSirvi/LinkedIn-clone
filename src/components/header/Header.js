@@ -7,9 +7,9 @@ const Header = (props) => {
         <Container>
             <Content>
                 <Logo>
-                    <a href="/home">
+                    <button onClick={() => props.SignOut()}>
                         <img src="/images/home-logo.svg" alt="" />
-                    </a>
+                    </button>
                 </Logo>
                 <Search>
                     <div>
@@ -119,6 +119,11 @@ const Content = styled.div`
 const Logo = styled.span`
     margin-right: 8px;
     font-size: 0px;
+    button{
+        border: none;
+        display: flex;
+        background-color: transparent;
+    }
 `;
 
 const Search = styled.div`

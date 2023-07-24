@@ -165,7 +165,8 @@ const Main = (props) => {
 
 const Container = styled.div`
   grid-area: main;
-`;
+  /* max-width: 500px; */
+`;  
 
 const CommonCard = styled.div`
   text-align: center;

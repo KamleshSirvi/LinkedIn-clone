@@ -19,6 +19,7 @@ export const getArticles = (payload) => ({
     payload: payload,
 })
 
+// promises 
 export function signInAPI() {
     return (dispatch) => {
         auth

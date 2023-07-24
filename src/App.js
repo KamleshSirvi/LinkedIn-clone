@@ -12,6 +12,8 @@ import Messaging from './components/messaging/Messaging';
 import Notifications from './components/notification/Notifications';
 import Hiring from './components/hiring/Hiring';
 import MyNetwork from './components/mynetwork/MyNetwork';
+import SignInPage from './components/SignInPage/SignInPage';
+import JoinNowPage from './components/JoinNow/JoinNowPage';
 
 function App(props) { 
   useEffect(() => {
@@ -29,6 +31,8 @@ function App(props) {
         <Route exact path="/home/messaging" element={<Messaging/>}/>
         <Route exact path="/home/notifications" element={<Notifications/>}/>
         <Route exact path="/home/hiring" element={<Hiring/>}/>
+        <Route exact path="/signIn" element={<SignInPage/>}/>
+        <Route exact path="/JoinNow" element={<JoinNowPage/>}/>
     </Routes>
       
     </BrowserRouter>

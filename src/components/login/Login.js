@@ -18,8 +18,8 @@ const Login =(props) => {
                 </a>
                 {/* join button */}
                 <div>
-                    <Join>Join now</Join>
-                    <Signin>Sign in</Signin>
+                    <Join href="/JoinNow">Join now</Join>
+                    <Signin href="/signIn">Sign in</Signin>
                 </div>
             </Nav>
             <Section>
@@ -79,6 +79,7 @@ const Join = styled.a`
 const Signin = styled.a`
     box-shadow: inset 0 0 0 1px #0a66c2;
     color: #0a66c2;
+    text-decoration: none;
     border-radius: 24px;
     transition-duration: 167ms;
     font-size: 16px;
@@ -153,6 +154,8 @@ const Form = styled.div`
 
     @media (max_width: 768px) {
         margin-top: 20px;
+        
+        
     }
 `;
 const Google = styled.button`

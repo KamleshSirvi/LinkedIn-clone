@@ -21,11 +21,14 @@ const Home = (props) => {
                     Find talented pros in record time with upwork and keep business moving
                 </p>
             </Section>
-            <Layout>
-                <Leftside/>
-                <Main/>
-                <Rightside/>
-            </Layout>
+            <Content>
+                <Layout>
+                    <Leftside/>
+                    <Main/>
+                    <Rightside/>
+                </Layout>
+            </Content>
+            
         </Container>
         </>
     );
@@ -70,12 +73,20 @@ const Section = styled.section`
     }
 `;
 
+const Content = styled.div`
+    /* max-width: 1000px; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+`;
+
 const Layout = styled.div`
     display: grid;
     grid-template-areas: "leftside main rightside";
     column-gap: 25px;
     row-gap: 25px;
     margin: 25px 0;
+    max-width: 1000px;
     @media (max-width: 768px){
         display: flex;
         flex-direction: column;
